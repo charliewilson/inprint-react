@@ -7,7 +7,7 @@ import Description from '../Description';
 
 function Home() {
 
-  //hook for api calls
+  //hook for api calls loaded
   const [hasLoaded, setHasLoaded] = useState(false);
   //hook for current slide index
   const [currentSlide, setCurrentSlide] = useState(localStorage.getItem("activeSlide"));
@@ -20,7 +20,6 @@ function Home() {
     .then((data) => {
       setData(data);
       setHasLoaded(true);
-      console.log(data);
     })
   },[])
 

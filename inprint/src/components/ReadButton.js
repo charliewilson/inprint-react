@@ -11,13 +11,13 @@ const ButtonTemplate = ({className, path, category}) => {
   }
 
   return(
-    <a className={className} target="_blank" href={`http://apps.esgplc.com/inprint/${path}/pdf.pdf`}>
+    <a className={className} target="_blank" href={`https://apps.esgplc.com/inprint/${path}/pdf.pdf`}>
       {displayTextMap[category]}
     </a>
   )
 
   // return(
-  //   <Link className={className} to={`http://apps.esgplc.com/inprint/${path}/pdf.pdf`}>
+  //   <Link className={className} to={`https://apps.esgplc.com/inprint/${path}/pdf.pdf`}>
   //     {displayTextMap[category]}
   //   </Link>
   // )
