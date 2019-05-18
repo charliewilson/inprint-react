@@ -15,7 +15,7 @@ function Home() {
   const [data, setData] = useState({});
 
   useEffect(() => {
-    fetch("https://apps.esgplc.com/inprint/api.php")
+    fetch("https://apps.esgplc.com/inprint/api.php?limit=3")
     .then((response) => (response.json()))
     .then((data) => {
       setData(data);
@@ -30,14 +30,19 @@ function Home() {
   }
 
   if(!hasLoaded) {
-    return <Ellipsis />;
+    return(
+    <div class="react-loading-container">
+      <Ellipsis />
+      <h1>Loading Magazines...</h1>
+    </div>
+    )
   }
 
   return (
-    <React.Fragment>
+    <div class="react-root-element">
       <CoverFlow data={data} updateFunction={slideUpdated} />
       <Description data={data} currentSlide={currentSlide} />
-    </React.Fragment>
+    </div>
   );
 }
 

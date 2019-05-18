@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
-const ButtonTemplate = ({className, goto, category}) => {
+const ButtonTemplate = ({className, path, category}) => {
 
   const displayTextMap = {
     "magazine": "Read",
@@ -11,10 +11,16 @@ const ButtonTemplate = ({className, goto, category}) => {
   }
 
   return(
-    <Link className={className} to={`read/${goto}`}>
+    <a className={className} target="_blank" href={`http://apps.esgplc.com/inprint/${path}/pdf.pdf`}>
       {displayTextMap[category]}
-    </Link>
+    </a>
   )
+
+  // return(
+  //   <Link className={className} to={`http://apps.esgplc.com/inprint/${path}/pdf.pdf`}>
+  //     {displayTextMap[category]}
+  //   </Link>
+  // )
 }
 
 const ReadButton = styled(ButtonTemplate)`
