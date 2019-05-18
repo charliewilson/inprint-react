@@ -1,0 +1,214 @@
+//variables
+$bgColour: #dedede;
+$magHeight: 500px;
+$aspectRatio: 1.41451613;
+$topBarBackground: #FFF;
+$betweenMargin: 100px;
+$fadeGradientPercentage: 30%;
+
+// Colours
+$c_Grey: #58595b;
+$c_DarkPurple: #5a0084;
+$c_LightPurple: #a722dd;
+
+$appName: "inprint";
+
+$animSpeed: .4s;
+
+$darkmode: false;
+
+$sm-br: 600px;
+$md-br: 1024px;
+
+$headerHeight: 200px;
+
+* {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+html,
+body {
+  width:100%;
+  height:100%;
+}
+
+body {
+  background-color: $bgColour;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color:#000;
+  margin: 0;
+  padding: 0;
+}
+
+.appContainer {
+  width:100%;
+  height:100%;
+  display:flex;
+  flex-direction: column;
+}
+
+.topBar {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items:center;
+}
+
+.topBar img:first-child {
+  height:100px;
+}
+
+.topBar img:last-child {
+  height:22px;
+  margin-right:30px;
+}
+
+.navBar {
+  background-color: $topBarBackground;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  display:flex;
+  flex-direction:row;
+  justify-content: center;
+  color: $c_Grey;
+  z-index: 10;
+}
+
+.navBar .navItem {
+  display: inline-block;
+  margin:20px 45px;
+}
+
+.navBar .navItem.active {
+  color: $c_DarkPurple;
+}
+
+.navBar .navItem .navIcon {
+  background-size: contain;
+  cursor: pointer;
+}
+
+// CATEGORY LIST
+
+.navBar .navItem[data-category='magazine'] > .navIcon {
+  background-image:url("/" + $appName + "/app/img/magazine2.png");
+}
+
+.navBar .navItem[data-category='casestudy'] > .navIcon {
+  background-image:url("/" + $appName + "/app/img/casestudy2.png");
+}
+
+.navBar .navItem[data-category='video'] > .navIcon {
+  background-image:url("/" + $appName + "/app/img/video2.png");
+}
+
+.navBar .navItem[data-category='magazine'].active > .navIcon {
+  background-image:url("/" + $appName + "/app/img/magazine2_active.png");
+}
+
+.navBar .navItem[data-category='casestudy'].active > .navIcon {
+  background-image:url("/" + $appName + "/app/img/casestudy2_active.png");
+}
+
+.navBar .navItem[data-category='video'].active > .navIcon {
+  background-image:url("/" + $appName + "/app/img/video2_active.png");
+}
+
+// END CATEGORY LIST
+
+.navBar .navItem .navIcon {
+  width: 80px;
+  height: 80px;
+}
+
+.navBar .navItem .navIcon img {
+  width:100%;
+}
+
+.navBar div p {
+  text-align: center;
+  margin-bottom:0;
+}
+
+.contentContainer {
+  display:flex;
+  flex-direction:row;
+  justify-content:space-evenly;
+  align-items: center;
+  flex: 1;
+}
+
+.contentContainer .swiper-container,
+.contentContainer .descriptionBlock {
+  flex: 1;
+}
+
+.swiper-container {
+  max-width: 800px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin:0;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+}
+
+.swiperFade {
+  margin-top:20px;
+  pointer-events:none;
+  width:100%;
+  height:100%;
+  background: linear-gradient(to right, rgba($bgColour,1) 0%,rgba($bgColour,0) $fadeGradientPercentage,rgba($bgColour,0) 100%-$fadeGradientPercentage,rgba($bgColour,1) 100%);
+  background-size: 100%;
+  background-position: center;
+  background-repeat: repeat-y;
+  position:absolute;
+  left:0;
+  top:0;
+  z-index: 9;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  height: $magHeight;
+  width: $magHeight / $aspectRatio;
+  box-shadow: 0 15px 25px rgba(0,0,0,0.4);
+  transform-style: flat;
+  -webkit-transform-style: flat;
+}
+
+.swiper-pagination-bullet-active {
+  background: $c_DarkPurple;
+}
+
+.descriptionBlock {
+  max-width: 800px;
+  min-height:600px;
+}
+
+.descriptionBlock a {
+  display:inline-block;
+  text-decoration:none;
+  color:#FFF;
+  font-size: 18px;
+  background: $c_DarkPurple;
+  padding:10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  transition: background .2s;
+}
+
+.descriptionBlock a:hover {
+  background: $c_LightPurple;
+}
+
+// @import "read";
+
+// @media screen and (min-width: $sm-br+1) and (max-width: $md-br) and (orientation: landscape) {
+//   @import "tablet";
+// }
+
+// @media screen and (min-width: 0) and (max-width: $md-br) and (orientation: portrait) {
+//   @import "mobile";
+// }
