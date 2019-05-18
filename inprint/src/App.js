@@ -1,16 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.scss';
-import CoverFlow from './components/coverflow/CoverFlow';
-import StyledLink from './components/StyledLink';
+import Home from "./components/pages/Home"
+import Read from "./components/pages/Read"
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 function App() {
 
-  // const [currentSlide, setCurrentSlide] = useState(0);
-
   return (
-    <CoverFlow />
-  
+    <Router >
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/read/:id" component={Read} />
+        <Route render={() => (
+          <p>Not found</p>
+        )} />
+      </Switch>
+    </Router>
   );
 }
 

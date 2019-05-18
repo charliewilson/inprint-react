@@ -1,10 +1,12 @@
 import React from 'react'
 
-const Slide = ({imageURL = "https://placehold.it/620x877"}) => (
-  <div
-    className="swiper-slide"
-    style={{"backgroundImage" : `url(${imageURL})`}}
-  ></div>
-)
+const Slide = ({path = "publications/issue1"}) => {
+  return(
+    <div
+      className="swiper-slide"
+      style={{"backgroundImage" : `url("https://apps.esgplc.com/inprint/${path}/pages/page1.jpg")`}}
+    ></div>
+  )
+}
 
 export default Slide

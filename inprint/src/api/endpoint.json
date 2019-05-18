@@ -1,0 +1,20 @@
+[
+  {
+    "id": "0",
+    "name": "Magazine 1",
+    "description": "This is a description for the first magazine",
+    "coverurl": "https://placehold.it/620x877?text=Magazine%201"
+  },
+  {
+    "id": "1",
+    "name": "Magazine 2",
+    "description": "This is a description for the second magazine",
+    "coverurl": "https://placehold.it/620x877?text=Magazine%202"
+  },
+  {
+    "id": "2",
+    "name": "Magazine 3",
+    "description": "This is a description for the third and final magazine",
+    "coverurl": "https://placehold.it/620x877?text=Magazine%203"
+  }
+]

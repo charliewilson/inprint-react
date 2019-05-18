@@ -2,9 +2,10 @@ import React from 'react'
 import Swiper from 'react-id-swiper/lib/ReactIdSwiper.full'
 import Slide from './Slide'
 
-const CoverFlow = () => {
+const CoverFlow = (props) => {
   const params = {
     effect: 'coverflow',
+    initialSlide: (localStorage.getItem("activeSlide") ? localStorage.getItem("activeSlide") : 0),
     grabCursor: true,
     centeredSlides: true,
     slidesPerView: 'auto',
@@ -20,16 +21,19 @@ const CoverFlow = () => {
     },
   };
 
-  const logInstance = (swiper) => {
-    console.log(swiper)
+  const attachListeners = (swiper) => {
+    if (swiper) {
+      swiper.on('slideChange', function(){
+        props.updateFunction(swiper.activeIndex)
+      });
+    }
   }
 
   return(
-    <Swiper getSwiper={logInstance} {...params}>
-      <Slide imageURL="https://placehold.it/620x877?text=Magazine%201" />
-      <Slide imageURL="https://placehold.it/620x877?text=Magazine%202" />
-      <Slide imageURL="https://placehold.it/620x877?text=Magazine%203" />
-      <Slide imageURL="https://placehold.it/620x877?text=Magazine%204" />
+    <Swiper getSwiper={attachListeners} {...params}>
+    {props.data.map((slide, i) => (
+      <Slide key={i} path={slide.path} />
+    ))}
     </Swiper>
   )
 }

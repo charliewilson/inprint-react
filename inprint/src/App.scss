@@ -203,6 +203,18 @@ body {
   background: $c_LightPurple;
 }
 
+#root {
+  height:100%;
+}
+
+.lds-ellipsis {
+  position: fixed;
+  margin-left: -32px;
+  margin-top: -32px;
+  top: 50%;
+  left: 50%;
+}
+
 // @import "read";
 
 // @media screen and (min-width: $sm-br+1) and (max-width: $md-br) and (orientation: landscape) {
